@@ -19,6 +19,10 @@
     <h3>Method</h3>
     <%= simple_format @recipe.method %>
 
+    <%= link_to edit_recipe_path(id: @recipe.id), class: "mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" do %>
+      <i class="material-icons">edit</i>
+    <% end %>
+
   </div>
 
 </div>
