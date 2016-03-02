@@ -1,0 +1,13 @@
+<%= link_to "Recipes", recipes_path %>
+
+<h1><%= @recipe.name %></h1>
+<%= image_tag @recipe.photo_url %>
+
+<h3>Description</h3>
+<%= @recipe.description %>
+
+<h3>Ingredients</h3>
+<%= simple_format @recipe.ingredients %>
+
+<h3>Method</h3>
+<%= simple_format @recipe.method %>
