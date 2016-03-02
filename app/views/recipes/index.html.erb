@@ -1,0 +1,11 @@
+<h1>Recipes</h1>
+
+<div class="recipe-list">
+
+  <% @recipes.each do |recipe| %>
+    <div class="recipes">
+      <%= link_to recipe.name, recipe_path(id: recipe.id) %>
+    </div>
+  <% end %>
+
+</div>
