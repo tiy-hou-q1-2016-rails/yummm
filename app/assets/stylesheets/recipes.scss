@@ -1,3 +1,16 @@
-// Place all the styles related to the recipes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.recipe-list {
+  display: flex;
+
+  .card-square {
+    width: 320px;
+    height: 320px;
+    margin: 20px;
+
+    .mdl-card__title-text {
+      background: rgba(#111111, 0.6);
+      color: #eeeeee;
+      padding: 2px 12px;
+    }
+  }
+
+}

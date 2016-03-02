@@ -1,13 +1,24 @@
-<%= link_to "Recipes", recipes_path %>
+<div class="demo-container mdl-grid">
 
-<h1><%= @recipe.name %></h1>
-<%= image_tag @recipe.photo_url %>
 
-<h3>Description</h3>
-<%= @recipe.description %>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone">
 
-<h3>Ingredients</h3>
-<%= simple_format @recipe.ingredients %>
+  </div>
 
-<h3>Method</h3>
-<%= simple_format @recipe.method %>
+  <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+
+    <h1><%= @recipe.name %></h1>
+    <%= image_tag @recipe.photo_url %>
+
+    <h3>Description</h3>
+    <%= @recipe.description %>
+
+    <h3>Ingredients</h3>
+    <%= simple_format @recipe.ingredients %>
+
+    <h3>Method</h3>
+    <%= simple_format @recipe.method %>
+
+  </div>
+
+</div>

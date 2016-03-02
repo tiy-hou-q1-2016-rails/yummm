@@ -28,6 +28,7 @@ EORECIPE
 
     pancake = Recipe.new
     pancake.name = "Cornmeal Pancakes"
+    pancake.description = "Slightly savory, delicioso!"
     pancake.ingredients = """
     1-1/2 cup (scant) All-purpose Flour
 1-1/2 cup Heaping Yellow Cornmeal
