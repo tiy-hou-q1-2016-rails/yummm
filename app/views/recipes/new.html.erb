@@ -1,0 +1,70 @@
+<div class="demo-container mdl-grid">
+
+
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone">
+  </div>
+
+  <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+      <h1>New Recipe</h1>
+
+      <% if @recipe.errors.any? %>
+        <%= pluralize(@recipe.errors.count, 'error') %> prevented your form from success.
+        <ul class="mdl-list">
+          <% @recipe.errors.full_messages.each do |msg| %>
+            <li class="mdl-list__item"><%= msg %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <%= form_for @recipe do |f| %>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <%= f.text_field :name, class: "mdl-textfield__input" %>
+        <% if @recipe.errors[:name].any? %>
+          <span class="error-text">* <%= @recipe.errors[:name].join(", ") %> </span>
+        <% end %>
+
+        <%= f.label :name, class: "mdl-textfield__label" %>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <%= f.text_area :description, class: "mdl-textfield__input" %>
+        <% if @recipe.errors[:description].any? %>
+          <span class="error-text">* <%= @recipe.errors[:description].join(", ") %> </span>
+        <% end %>
+
+        <%= f.label :description, class: "mdl-textfield__label" %>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <%= f.text_area :ingredients, class: "mdl-textfield__input" %>
+        <% if @recipe.errors[:ingredients].any? %>
+          <span class="error-text">* <%= @recipe.errors[:ingredients].join(", ") %> </span>
+        <% end %>
+        <%= f.label :ingredients, class: "mdl-textfield__label" %>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <%= f.text_area :method, class: "mdl-textfield__input" %>
+        <% if @recipe.errors[:method].any? %>
+          <span class="error-text">* <%= @recipe.errors[:method].join(", ") %> </span>
+        <% end %>
+        <%= f.label :method, class: "mdl-textfield__label" %>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <%= f.text_field :photo_url, class: "mdl-textfield__input" %>
+        <% if @recipe.errors[:photo_url].any? %>
+          <span class="error-text">* <%= @recipe.errors[:photo_url].join(", ") %> </span>
+        <% end %>
+        <%= f.label :photo_url, class: "mdl-textfield__label" %>
+      </div>
+
+      <div>
+        <%= f.submit class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+      </div>
+
+      <% end %>
+  </div>
+
+</div>
