@@ -7,6 +7,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by id: params[:id]
     @recipe.view_count = @recipe.view_count + 1
     @recipe.save
+
+    @comment = Comment.new
+    @comment.recipe = @recipe
   end
 
   def new
@@ -62,5 +65,21 @@ class RecipesController < ApplicationController
     @recipe.destroy
     # redirect away
     redirect_to recipes_path
+  end
+
+  def create_comment
+    # get the record
+    @recipe = Recipe.find_by id: params[:id]
+    @comment = Comment.new
+
+    @comment.comment_text = params[:comment][:comment_text]
+    @comment.recipe_id = @recipe.id
+    # save it
+    if @comment.save
+      redirect_to recipe_path(id: @recipe.id)
+    else
+      render :show
+    end
+    # redirect or render
   end
 end
