@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post 'recipes' => 'recipes#create'
   patch 'recipes/:id' => 'recipes#update'
   delete 'recipes/:id' => 'recipes#delete'
+  post 'recipes/:id/comments' => 'recipes#create_comment', as: :comments
 end

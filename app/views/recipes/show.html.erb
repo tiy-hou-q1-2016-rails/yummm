@@ -30,6 +30,31 @@
       <i class="material-icons">edit</i>
     <% end %>
 
+    <hr/>
+
+    <h2>Comments</h2>
+
+    <%= form_for @comment do |f| %>
+      <div class="mdl-textfield mdl-js-textfield <%= 'is-invalid' if @comment.errors[:comment_text].any? %>">
+        <%= f.text_area :comment_text, class: "mdl-textfield__input" %>
+        <% if @comment.errors[:comment_text].any? %>
+          <span class="mdl-textfield__error">* <%= @comment.errors[:comment_text].join(", ") %> </span>
+        <% end %>
+
+        <%= f.label :comment_text, class: "mdl-textfield__label" %>
+      </div>
+
+      <div>
+        <%= f.submit class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+      </div>
+    <% end %>
+
+    <ul>
+      <% @recipe.comments.order("id desc").each do |comment| %>
+        <li><%= comment.comment_text %> - <%= distance_of_time_in_words comment.created_at, Time.now %> ago</li>
+      <% end %>
+    </ul>
+
   </div>
 
 </div>
