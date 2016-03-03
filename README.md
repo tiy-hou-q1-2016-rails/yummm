@@ -1,6 +1,8 @@
 Yummm
 =====
 
+![img](http://i.imgur.com/vDxS3va.png)
+
 
 Rails Command Line Run
 --------------------------
