@@ -18,6 +18,16 @@
   <%= f.label :name, class: "mdl-textfield__label" %>
 </div>
 
+<div class="<%= 'is-invalid' if @recipe.errors[:category_id].any? %>">
+
+  <%= f.collection_select(:category_id, Category.all.order("name asc"), :id, :name, {prompt: "Select a Category"}, {class: "mdl-textfield__input"}) %>
+
+  <% if @recipe.errors[:category_id].any? %>
+    <span class="mdl-textfield__error">* <%= @recipe.errors[:category_id].join(", ") %> </span>
+  <% end %>
+
+</div>
+
 <div class="mdl-textfield mdl-js-textfield <%= 'is-invalid' if @recipe.errors[:description].any? %>">
   <%= f.text_area :description, class: "mdl-textfield__input" %>
   <% if @recipe.errors[:description].any? %>
@@ -43,7 +53,7 @@
   <% end %>
 </div>
 
-<div class="mdl-textfield mdl-js-textfield">
+<div class="">
   <%= f.attachment_field :photo, class: "" %>
   <% if @recipe.errors[:photo].any? %>
     <span class="mdl-textfield__error">* <%= @recipe.errors[:photo].join(", ") %> </span>
