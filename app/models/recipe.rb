@@ -3,7 +3,8 @@ class Recipe < ActiveRecord::Base
   validates :name, :description, :ingredients, :method, :photo, presence: true
 
   belongs_to :category
-  
+  has_many :comments
+
   # if we wanted to push down to model, we could call
   #    @recipe.increment_view_count!
   #
