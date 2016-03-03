@@ -5,6 +5,8 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by id: params[:id]
+    @recipe.view_count = @recipe.view_count + 1
+    @recipe.save
   end
 
   def new
