@@ -19,6 +19,7 @@ class RecipesController < ApplicationController
     # set the fields
     @recipe.name = params[:recipe][:name]
     @recipe.description = params[:recipe][:description]
+    @recipe.category_id = params[:recipe][:category_id]
     @recipe.ingredients = params[:recipe][:ingredients]
     @recipe.method = params[:recipe][:method]
     @recipe.photo = params[:recipe][:photo]
@@ -40,6 +41,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by id: params[:id]
     # set the fields
     @recipe.name = params[:recipe][:name]
+    @recipe.category_id = params[:recipe][:category_id]
     @recipe.description = params[:recipe][:description]
     @recipe.ingredients = params[:recipe][:ingredients]
     @recipe.method = params[:recipe][:method]

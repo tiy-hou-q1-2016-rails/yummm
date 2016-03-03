@@ -55,3 +55,9 @@ Stack three pancakes, placing a pat of butter between each pancake.
 
     pancake.save
 end
+
+if Category.count == 0
+  Category.create name: "Breakfast"
+  Category.create name: "Tacos"
+  Category.create name: "Vegetarian"
+end
