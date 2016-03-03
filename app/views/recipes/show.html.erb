@@ -7,11 +7,15 @@
 
   <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
 
-    <h1><%= @recipe.name %></h1>
-    <%= image_tag attachment_url(@recipe, :photo, :fill, 400, 150, format: "jpg") %>
 
-    <hr>
-    <%= image_tag @recipe.photo_url %>
+    <h1><%= @recipe.name %></h1>
+
+    <p>
+      <small>Recipe has been viewed <%= pluralize @recipe.view_count, 'time' %>  </small> </p>
+    </p>
+
+    <%= image_tag attachment_url(@recipe, :photo, :fill, 600, 400, format: "jpg") %>
+
 
     <h3>Description</h3>
     <%= @recipe.description %>
