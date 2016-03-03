@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
     @recipe.description = params[:recipe][:description]
     @recipe.ingredients = params[:recipe][:ingredients]
     @recipe.method = params[:recipe][:method]
-    @recipe.photo_url = params[:recipe][:photo_url]
+    @recipe.photo = params[:recipe][:photo]
     # save or redirect
 
     if @recipe.save
@@ -41,7 +41,7 @@ class RecipesController < ApplicationController
     @recipe.description = params[:recipe][:description]
     @recipe.ingredients = params[:recipe][:ingredients]
     @recipe.method = params[:recipe][:method]
-    @recipe.photo_url = params[:recipe][:photo_url]
+    @recipe.photo = params[:recipe][:photo]
     # save redirect or render
     if @recipe.save
       redirect_to recipe_path(id: @recipe.id)
