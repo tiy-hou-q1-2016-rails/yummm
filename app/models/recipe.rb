@@ -1,4 +1,4 @@
 class Recipe < ActiveRecord::Base
-
-  validates :name, :description, :ingredients, :method, :photo_url, presence: true
+  attachment :photo
+  validates :name, :description, :ingredients, :method, :photo, presence: true
 end
