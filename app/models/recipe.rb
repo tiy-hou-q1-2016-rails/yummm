@@ -1,6 +1,6 @@
 class Recipe < ActiveRecord::Base
   attachment :photo
-  validates :name, :description, :ingredients, :method, :photo, presence: true
+  validates :name, :description, :ingredients, :method, :category, presence: true
 
   belongs_to :category
   has_many :comments
