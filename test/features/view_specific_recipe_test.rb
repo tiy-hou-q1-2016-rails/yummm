@@ -5,8 +5,14 @@ class ViewSpecificRecipeTest < Capybara::Rails::TestCase
   setup do
 
     cat = Category.create! name: "Yolo"
-    Recipe.create! category: cat, name: "Cornmeal Pancakes", description: "The Description", ingredients: "The Ingredients", method: "The Method"
 
+
+    # how to upload a file in a test
+    recipe = Recipe.new category: cat, name: "Cornmeal Pancakes", description: "The Description", ingredients: "The Ingredients", method: "The Method"
+    File.open("#{Rails.root}/test/fixtures/tacos.jpg", "rb") do |file|
+      recipe.photo = file
+    end
+    recipe.save!
   end
 
   test "view recipe" do
