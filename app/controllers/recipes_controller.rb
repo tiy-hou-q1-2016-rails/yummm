@@ -1,9 +1,22 @@
 class RecipesController < ApplicationController
+
+  before_action do
+
+    user_passcode = session[:passcode]
+    if user_passcode.blank?
+      redirect_to sign_in_path
+    end
+  end
+
+
   def index
     @recipes = Recipe.all.order("view_count desc")
   end
 
   def show
+
+
+
     @recipe = Recipe.find_by id: params[:id]
     @recipe.view_count = @recipe.view_count + 1
     @recipe.save

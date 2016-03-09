@@ -9,6 +9,9 @@ class CreateRecipeTest < Capybara::Rails::TestCase
   test "can create a recipe" do
     visit root_path
     click_link "All Recipes"
+
+    fill_in :passcode, with: "yolo"
+    click_button "Sign In"
     click_link "add"
 
     within("#new_recipe") do

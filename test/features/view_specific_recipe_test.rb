@@ -19,6 +19,9 @@ class ViewSpecificRecipeTest < Capybara::Rails::TestCase
     visit root_path
     assert_content page, "Yummmm"
     click_link "All Recipes"
+    fill_in :passcode, with: "yolo"
+    click_button "Sign In"
+
     click_link "Cornmeal Pancakes"
     assert_content page, "Ingredients"
   end
@@ -27,6 +30,11 @@ class ViewSpecificRecipeTest < Capybara::Rails::TestCase
     recipe = Recipe.first
     #do something
     original_count = recipe.view_count
+
+    visit recipe_path(id: recipe.id)
+    fill_in :passcode, with: "yolo"
+    click_button "Sign In"
+
     3.times do
       visit recipe_path(id: recipe.id)
     end
