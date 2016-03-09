@@ -15,4 +15,3 @@ deploy:
     repo: tiy-hou-q1-2016-rails/yummm
   run:
     - "rake db:migrate"
-    - "rake cleanup"
