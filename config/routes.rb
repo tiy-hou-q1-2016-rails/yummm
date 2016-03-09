@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'sign_out' => 'session#delete', as: :sign_out
   root 'homepage#show'
 
+  get '/register' => 'registration#new', as: :new_user
+  post '/register' => 'registration#create', as: :users
+
   get 'recipes' => 'recipes#index', as: :recipes
   get 'recipes/new' => 'recipes#new', as: :new_recipe
   get 'recipes/:id' => 'recipes#show', as: :recipe
