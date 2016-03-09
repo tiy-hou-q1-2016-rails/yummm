@@ -20,6 +20,7 @@
 
 <div class="<%= 'is-invalid' if @recipe.errors[:category_id].any? %>">
 
+  <%= f.label :category_id %>
   <%= f.collection_select(:category_id, Category.all.order("name asc"), :id, :name, {prompt: "Select a Category"}, {class: "mdl-textfield__input"}) %>
 
   <% if @recipe.errors[:category_id].any? %>

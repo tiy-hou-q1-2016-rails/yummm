@@ -1,5 +1,8 @@
 Yummm
 =====
+
+![travis](https://travis-ci.org/tiy-hou-q1-2016-rails/yummm.svg)
+
 ![img](erd.png)
 
 ![img](http://i.imgur.com/vDxS3va.png)
