@@ -17,6 +17,9 @@
         <div class="mdl-layout__header-row">
           <%= link_to "Yummm Recipes", root_path, class: "mdl-layout-title" %>
           <div class="mdl-layout-spacer"></div>
+          <%= @number %>
+
+          <%= link_to "Sign Out", sign_out_path %>
           <div data-upgraded=",MaterialTextfield" class="mdl-textfield mdl-js-textfield mdl-textfield--expandable is-upgraded">
             <label data-upgraded=",MaterialButton" class="mdl-button mdl-js-button mdl-button--icon" for="search">
               <i class="material-icons">search</i>
@@ -43,7 +46,7 @@
             </ul>
           </div>
         </footer>
-        
+        ils
       </main>
 
     </div>
