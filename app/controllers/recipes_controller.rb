@@ -2,8 +2,8 @@ class RecipesController < ApplicationController
 
   before_action do
 
-    user_passcode = session[:passcode]
-    if user_passcode.blank?
+    @current_user = User.find_by id: session[:user_id]
+    if @current_user.blank?
       redirect_to sign_in_path
     end
   end

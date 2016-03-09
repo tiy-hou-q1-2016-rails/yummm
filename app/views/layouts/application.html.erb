@@ -19,7 +19,11 @@
           <div class="mdl-layout-spacer"></div>
           <%= @number %>
 
-          <%= link_to "Sign Out", sign_out_path %>
+          <% if @current_user %>
+            <%= link_to "Sign Out", sign_out_path %>
+          <% else %>
+            <%= link_to "Sign In", sign_in_path %>
+          <% end %>
           <div data-upgraded=",MaterialTextfield" class="mdl-textfield mdl-js-textfield mdl-textfield--expandable is-upgraded">
             <label data-upgraded=",MaterialButton" class="mdl-button mdl-js-button mdl-button--icon" for="search">
               <i class="material-icons">search</i>

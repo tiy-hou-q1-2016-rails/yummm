@@ -4,14 +4,19 @@ class CreateRecipeTest < Capybara::Rails::TestCase
 
   setup do
     Category.create! name: "delicious tacos"
+    User.create! name: "Bob", email: "bob@example.com", password: "12345678"
+
   end
 
   test "can create a recipe" do
     visit root_path
     click_link "All Recipes"
 
-    fill_in :passcode, with: "yolo"
+    fill_in :email, with: "bob@example.com"
+    fill_in :password, with: "12345678"
     click_button "Sign In"
+
+    click_link "All Recipes"
     click_link "add"
 
     within("#new_recipe") do

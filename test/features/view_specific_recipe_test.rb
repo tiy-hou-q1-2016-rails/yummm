@@ -13,14 +13,20 @@ class ViewSpecificRecipeTest < Capybara::Rails::TestCase
       recipe.photo = file
     end
     recipe.save!
+
+    User.create! name: "Bob", email: "bob@example.com", password: "12345678"
+
   end
 
   test "view recipe" do
     visit root_path
     assert_content page, "Yummmm"
     click_link "All Recipes"
-    fill_in :passcode, with: "yolo"
+
+    fill_in :email, with: "bob@example.com"
+    fill_in :password, with: "12345678"
     click_button "Sign In"
+    click_link "All Recipes"
 
     click_link "Cornmeal Pancakes"
     assert_content page, "Ingredients"
@@ -32,8 +38,11 @@ class ViewSpecificRecipeTest < Capybara::Rails::TestCase
     original_count = recipe.view_count
 
     visit recipe_path(id: recipe.id)
-    fill_in :passcode, with: "yolo"
+
+    fill_in :email, with: "bob@example.com"
+    fill_in :password, with: "12345678"
     click_button "Sign In"
+    click_link "All Recipes"
 
     3.times do
       visit recipe_path(id: recipe.id)
