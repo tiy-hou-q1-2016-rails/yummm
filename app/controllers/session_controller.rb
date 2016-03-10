@@ -6,9 +6,10 @@ class SessionController < ApplicationController
     email = params[:email]
     password = params[:password]
     # get the object
-    @user = User.find_by email: email
+    # @user = User.find_by email: email.downcase
+    @user = User.where("email ILIKE ?", email).first
     # set the values
-    if @user.password == password
+    if @user && @user.authenticate(password)
       session[:user_id] = @user.id
       redirect_to root_path
     else
