@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  use_doorkeeper
+
   get 'sign_in' => 'session#new', as: :sign_in
   post 'sign_in' => 'session#create'
   get 'sign_out' => 'session#delete', as: :sign_out
@@ -20,5 +22,6 @@ Rails.application.routes.draw do
 
   get 'api/recipes' => 'api/recipes#index', as: :api_recipes
   get 'api/recipes/:id' => 'api/recipes#show', as: :api_recipe
+  post 'api/register' => 'api/registration#create'
 
 end
