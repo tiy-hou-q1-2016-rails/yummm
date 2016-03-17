@@ -10,18 +10,26 @@ Rails.application.routes.draw do
   get '/register' => 'registration#new', as: :new_user
   post '/register' => 'registration#create', as: :users
 
-  get 'recipes' => 'recipes#index', as: :recipes
-  get 'recipes/new' => 'recipes#new', as: :new_recipe
-  get 'recipes/:id' => 'recipes#show', as: :recipe
-  get 'recipes/:id/edit' => 'recipes#edit', as: :edit_recipe
-  post 'recipes' => 'recipes#create'
-  patch 'recipes/:id' => 'recipes#update'
-  delete 'recipes/:id' => 'recipes#delete'
+  # get 'recipes' => 'recipes#index', as: :recipes
+  # get 'recipes/new' => 'recipes#new', as: :new_recipe
+  # get 'recipes/:id' => 'recipes#show', as: :recipe
+  # get 'recipes/:id/edit' => 'recipes#edit', as: :edit_recipe
+  # post 'recipes' => 'recipes#create'
+  # patch 'recipes/:id' => 'recipes#update'
+  # delete 'recipes/:id' => 'recipes#delete'
+  resources :recipes
   post 'recipes/:id/comments' => 'recipes#create_comment', as: :comments
 
 
-  get 'api/recipes' => 'api/recipes#index', as: :api_recipes
-  get 'api/recipes/:id' => 'api/recipes#show', as: :api_recipe
-  post 'api/register' => 'api/registration#create'
+  namespace :api do
+    # get 'recipes' => 'recipes#index', as: :recipes
+    # get 'recipes/:id' => 'recipes#show', as: :recipe
+    # post 'recipes' => 'recipes#create'
+    # patch 'recipes/:id' => 'recipes#update'
+    # delete 'recipes/:id' => 'recipes#delete'
+
+    resources :recipes
+    post 'register' => 'registration#create'
+  end
 
 end
