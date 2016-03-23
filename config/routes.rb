@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   patch 'recipes/:id' => 'recipes#update'
   delete 'recipes/:id' => 'recipes#delete'
   post 'recipes/:id/comments' => 'recipes#create_comment', as: :comments
+
+  namespace :api do
+    get 'recipes' => 'recipes#index', as: :recipes
+  end
 end
