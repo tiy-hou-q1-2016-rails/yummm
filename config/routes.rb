@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/register' => 'registration#new', as: :new_user
   post '/register' => 'registration#create', as: :users
 
+  get 'recipeform' => 'recipes#react_form'
+
   get 'recipes' => 'recipes#index', as: :recipes
   get 'recipes/new' => 'recipes#new', as: :new_recipe
   get 'recipes/:id' => 'recipes#show', as: :recipe
@@ -19,5 +21,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'recipes' => 'recipes#index', as: :recipes
+    post 'recipes' => 'recipes#create'
+    get 'categories' => 'recipes#categories'
   end
 end

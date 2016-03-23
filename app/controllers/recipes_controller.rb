@@ -8,6 +8,8 @@ class RecipesController < ApplicationController
     end
   end
 
+  def react_form
+  end
 
   def index
     @recipes = Recipe.all.order("view_count desc")
