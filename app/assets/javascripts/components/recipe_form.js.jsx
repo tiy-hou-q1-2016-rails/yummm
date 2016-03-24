@@ -73,33 +73,33 @@ var RecipeForm = React.createClass({
 
 
 
-      <form onSubmit={this.handleSubmit}>
+      <form id="new_recipe" onSubmit={this.handleSubmit}>
 
       <div>
 
-        <label>Name</label>
-        <input type="text" ref="name"/><em>{this.state.errors.name}</em>
+        <label htmlFor="name">Name</label>
+        <input type="text" ref="name" id="name"/><em>{this.state.errors.name}</em>
       </div>
 
       <div>
-        <label>Ingredients</label>
-        <input type="text" ref="ingredients"/><em>{this.state.errors.ingredients}</em>
+        <label htmlFor="ingredients">Ingredients</label>
+        <input type="text" ref="ingredients" id="ingredients"/><em>{this.state.errors.ingredients}</em>
       </div>
 
       <div>
-        <label>Method</label>
-        <input type="text" ref="method"/><em>{this.state.errors.method}</em>
+        <label htmlFor="method">Method</label>
+        <input type="text" ref="method" id="method"/><em>{this.state.errors.method}</em>
       </div>
 
       <div>
-        <label>Description</label>
-        <input type="text" ref="description"/><em>{this.state.errors.description}</em>
+        <label htmlFor="description">Description</label>
+        <input type="text" ref="description" id="description"/><em>{this.state.errors.description}</em>
       </div>
 
       <div>
-        <label>Category</label>
+        <label htmlFor="category">Category</label>
 
-        <select ref="category">
+        <select ref="category" id="category">
           <option value="">Please select a category</option>
 
           {this.state.categories.map(function(category){
@@ -112,8 +112,8 @@ var RecipeForm = React.createClass({
       </div>
 
       <div>
-        <label>Photo Url</label>
-        <input type="text" ref="photo_url"/><em>{this.state.errors.photo}</em>
+        <label htmlFor="photo_url">Photo Url</label>
+        <input type="text" ref="photo_url" id="photo_url"/><em>{this.state.errors.photo}</em>
       </div>
 
       <div>

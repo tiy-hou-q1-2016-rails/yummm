@@ -40,6 +40,9 @@ group :development, :test do
   gem 'minitest-rails'
   gem 'minitest-rails-capybara'
   gem 'launchy'
+  gem 'poltergeist'
+  gem 'pry'
+
 end
 
 group :development do
@@ -48,7 +51,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'pry'
 end
 
 group :production do
