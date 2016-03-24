@@ -4,6 +4,11 @@ class ViewSpecificRecipeTest < Capybara::Rails::TestCase
 
   setup do
 
+    # Since we care about the number of recipes,
+    # let's delete them all
+    Category.delete_all
+    Recipe.delete_all
+
     cat = Category.create! name: "Yolo"
 
 
@@ -18,7 +23,7 @@ class ViewSpecificRecipeTest < Capybara::Rails::TestCase
 
   end
 
-  test "view recipe" do
+  scenario "view recipe", js: true do
     visit root_path
     assert_content page, "Yummmm"
     click_link "All Recipes"
