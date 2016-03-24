@@ -8,7 +8,9 @@ class CreateRecipeTest < Capybara::Rails::TestCase
 
   end
 
-  test "can create a recipe" do
+  # test "can create a recipe" do
+  scenario "can create a recipe", js: true do
+
     visit root_path
     click_link "All Recipes"
 
@@ -19,6 +21,7 @@ class CreateRecipeTest < Capybara::Rails::TestCase
     click_link "All Recipes"
     click_link "add"
 
+
     within("#new_recipe") do
       fill_in "Name", with: "Tacos"
       fill_in "Ingredients", with: "The Ingredients"
@@ -26,7 +29,8 @@ class CreateRecipeTest < Capybara::Rails::TestCase
       fill_in "Description", with: "The Description"
 
       select("delicious tacos", from: "Category")
-      attach_file('Photo', "#{Rails.root}/test/fixtures/tacos.jpg")
+      #attach_file('Photo', "#{Rails.root}/test/fixtures/tacos.jpg")
+      fill_in "Photo Url", with: "http://tacospin.com/assets/img/taco.jpg"
       click_button "Create Recipe"
     end
 
