@@ -16,7 +16,7 @@ var RecipeList = React.createClass({
     }, 3000)
   },
 
-  componentWillUnMount(){
+  componentWillUnmount(){
     // Clear the interval
     clearInterval(this.autoUpdatingInterval)
   },
